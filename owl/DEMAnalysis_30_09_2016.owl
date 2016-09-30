@@ -1,0 +1,269 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:DEM-Analysis="http://www.pericles-project.eu/ns/DEM-Analysis#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:DEM-Core="http://www.pericles-project.eu/ns/DEM-Core#"
+    xmlns:LRM="http://xrce.xerox.com/LRM#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#">
+    <owl:imports rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#"/>
+    <owl:imports rdf:resource="http://xrce.xerox.com/LRM#"/>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#Cost">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Description"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Dependency"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Adds a cost value to an entity or relation. Can also be annotated.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#WeightedRelation"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#Annotation">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Description"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Annotation of an entity or a Weighted Relation.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#SemanticDrift">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Description"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Dependency"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>This weighted relation points from an Ecosystem Entity to an earlier version of the same Ecosystem Entity, or to another Ecosystem Entity with huge semantic similarities. It is used to express the semantic drift between these two entities.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#WeightedRelation"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#Error">
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>An Error.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#Annotation"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#Tag">
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A tag.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#Annotation"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#Scenario">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AggregatedResource"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The scenario entity is the view on the ontology. A scenario contains a collection of several entities. Each scenario can have unique weighting of the entities.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#WeightedRelation">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Dependency"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>This entity corresponds to a weighted edge in the graph. It can also be used to weight entities by pointing the "from" and the "to" to the same entity.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#Query">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousActivity"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Either an external query submitted by a human agent or an internal process-to-process query to propagate control requests.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#Significance">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Description"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Dependency"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A weighted relation which expresses the significance of an Ecosystem Entity for an other Ecosystem Entity, e.g. for a Scenario or a Purpose.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#WeightedRelation"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#Purpose">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Intention"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Plan"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The purpose allows to categorise the functions or relations of entities. E.g. preservation process has the purpose to keep the objects.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#EcosystemDependency">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Dependency"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A dependency in the digital ecosystem.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#WeightedRelation"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#Warning">
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A warning.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#Annotation"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#calculatedBy">
+    <rdfs:label xml:lang="en">calculatedBy</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The value of the weighted relation was calculated or meassured by the referred entity.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#WeightedRelation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#hasAnnotation">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#annotates"/>
+    </owl:inverseOf>
+    <rdfs:label xml:lang="en">hasAnnotation</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The ecosystem entity has an annotation.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#Annotation"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#taggedBy">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#tags"/>
+    </owl:inverseOf>
+    <rdfs:label xml:lang="en">taggedBy</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>This entity is tagged by a tag.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#Tag"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#hasPurpose">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#purposeOf"/>
+    </owl:inverseOf>
+    <rdfs:label xml:lang="en">hasPurpose</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://xrce.xerox.com/LRM#intention"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The ecosystem entity has a specific purpose.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#Purpose"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#annotates">
+    <rdfs:label xml:lang="en">annotates</rdfs:label>
+    <owl:inverseOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#hasAnnotation"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Annotates an ecosystem entity.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#Annotation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#hasValue">
+    <rdfs:label xml:lang="en">hasValue</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Assigns a weight to a weighted relation.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#WeightedRelation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#tags">
+    <rdfs:label xml:lang="en">tags</rdfs:label>
+    <owl:inverseOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#taggedBy"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>This tag tags the referred entities</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#Tag"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#hasCost">
+    <rdfs:label xml:lang="en">hasCost</rdfs:label>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#costOf"/>
+    </owl:inverseOf>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>This entity has a cost value</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#Cost"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#costOf">
+    <owl:inverseOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#hasCost"/>
+    <rdfs:label xml:lang="en">costOf</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>This value is the cost value of the referred entity.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#Cost"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Analysis#purposeOf">
+    <rdfs:label xml:lang="en">purposeOf</rdfs:label>
+    <owl:inverseOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#hasPurpose"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The purpose refers to an ecosystem entity.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Analysis#Purpose"/>
+  </owl:ObjectProperty>
+</rdf:RDF>

@@ -1,0 +1,272 @@
+<rdf:RDF
+    xmlns:DEM-Process="http://www.pericles-project.eu/ns/DEM-Process#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:DEM-Core="http://www.pericles-project.eu/ns/DEM-Core#"
+    xmlns:LRM="http://xrce.xerox.com/LRM#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://www.pericles-project.eu/ns/DEM-Process#">
+    <owl:imports rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#"/>
+    <owl:imports rdf:resource="http://xrce.xerox.com/LRM#"/>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Process#HumanAgent">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#HumanAgent"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Agent"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A human agent in the ecosystem executing human activities.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemAgent"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Process#Slot">
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>An input- or output slot is linked to a process and defines which entity types can be passed as input or output of the process.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Process#AggregatedProcess">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AggregatedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousActivity"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A aggregated Process consists of other Processes. This entity is used to build a Process hierarchy with a tree structure.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Process#ProcessForModelValidation">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousActivity"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A ProMV is the first process of the process triple {ProMV,ProEV,ProT} which is recommended to be modelled as process implementation of a policy. A ProMV operates on CORE_MODEL level. Its purpose is to get the set of entities which are constrained by a policy from the CORE_MODEL, and to pass each entity into a ProEV. Therefore the ProMV is called in case of policy changes, or after a huge CORE_MODEL process. A ProMV can be an aggregated resource of sub-ProMV.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Process#Role">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Humans can have a designated role.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Process#ProcessForTransformation">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousActivity"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A ProT is the third process of the process triple {ProMV,ProEV,ProT} which is recommended to be modelled as process implementation of a policy. A ProT operates on entity level and transforms an entity from an invalid state into a valid state regarding the constrains of a policy. ProT gets the entity input from ProEV in case of the occurrence of an invalid entity. A ProT can be an aggregated resource of sub-ProT.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Process#EcosystemEvent">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousEvent"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>An event triggered by an EcosystemActivity. Add a more specific LRM event class as second base class to describe the event type, in more detail e.g. lrm:RecurringEvent, lrm:ChangeEvent, lrm:CreationEvent, etc.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Process#Implementation">
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#DigitalObject"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The implementation of a process.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Process#HumanActivity">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousActivity"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A human activity is an ecosystem activity which is executed by a HumanAgent.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemActivity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Process#ProcessForEntityValidation">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousActivity"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A ProEV is the second process of the process triple {ProMV,ProEV,ProT} which is recommended to be modelled as process implementation of a policy. A ProEV operates on entity level. Its purpose is to check if an entity fulfils the policy constrains, and to pipe each entity which fails the validation into ProT. Therefore the ProEV is called either by ProMV, or in case of an entity process to verify the entity state. A ProEV can be an aggregated resource of sub-ProEV.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Process#hasAuthor">
+    <rdfs:label xml:lang="en">hasAuthor</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Defines the author of the Digital Object.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Process#HumanAgent"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#DigitalObject"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Process#hasInputSlot">
+    <rdfs:label xml:lang="en">hasInputSlot</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Specifies an output slot of a process.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Process#Slot"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Process#slotTemplate">
+    <rdfs:label xml:lang="en">slotTemplate</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The entity template / type which instances can be passed to this process slot</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Process#Slot"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Process#hasAutomationState">
+    <rdfs:label xml:lang="en">hasAutomationState</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Links an Automation State to a Process.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Process#hasImplementation">
+    <rdfs:label xml:lang="en">hasImplementation</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Links an implementation entity to a Process.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Process#Implementation"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Process#hasMimeType">
+    <rdfs:label xml:lang="en">hasMimeType</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Defines the mime type of an Implementation.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Process#Implementation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Process#responsible">
+    <rdfs:label xml:lang="en">responsible</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Refers to the responsible person for the application of the policy.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Process#HumanAgent"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Process#hasOutputSlot">
+    <rdfs:label xml:lang="en">hasOutputSlot</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Specifies an input slot of a process.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Process#Slot"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Process#ownedByPerson">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Process#personOwns"/>
+    </owl:inverseOf>
+    <rdfs:label xml:lang="en">ownedByPerson</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A human agent can own ecosystem entities.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Process#HumanAgent"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Process#personOwns">
+    <rdfs:label xml:lang="en">personOwns</rdfs:label>
+    <owl:inverseOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Process#ownedByPerson"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A human agent can own ecosystem entities.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Process#HumanAgent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Process#passesOutputTo">
+    <rdfs:label xml:lang="en">passesOutputTo</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The output of a typed process output slot is passed to a process input slot of the same type.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Process#Slot"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Process#Slot"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Process#hasRole">
+    <rdfs:label xml:lang="en">hasRole</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Assigns a role to a community or to an agent.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Process#Role"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemAgent"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#UserCommunity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Process#slotNumber">
+    <rdfs:label xml:lang="en">slotNumber</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The number of the slot as input or output parameter of the process.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Process#Slot"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Process#processSequence">
+    <rdfs:label xml:lang="en">processSequence</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Order of execution of sub-processes of an aggregated process</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Process#AggregatedProcess"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Process#receivesInputFrom">
+    <rdfs:label xml:lang="en">receivesInputFrom</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The typed process input slot receives the output from an output slot of the same type.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Process#Slot"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Process#Slot"/>
+  </owl:ObjectProperty>
+</rdf:RDF>

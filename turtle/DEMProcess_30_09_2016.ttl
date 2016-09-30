@@ -1,0 +1,207 @@
+@prefix DEM-Process: <http://www.pericles-project.eu/ns/DEM-Process#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix LRM:   <http://xrce.xerox.com/LRM#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix DEM-Core: <http://www.pericles-project.eu/ns/DEM-Core#> .
+
+DEM-Process:ProcessForTransformation
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:ExogenousActivity , DEM-Core:Process , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A ProT is the third process of the process triple {ProMV,ProEV,ProT} which is recommended to be modelled as process implementation of a policy. A ProT operates on entity level and transforms an entity from an invalid state into a valid state regarding the constrains of a policy. ProT gets the entity input from ProEV in case of the occurrence of an invalid entity. A ProT can be an aggregated resource of sub-ProT."
+                           ] .
+
+DEM-Process:ProcessForEntityValidation
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:ExogenousActivity , DEM-Core:Process , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A ProEV is the second process of the process triple {ProMV,ProEV,ProT} which is recommended to be modelled as process implementation of a policy. A ProEV operates on entity level. Its purpose is to check if an entity fulfils the policy constrains, and to pipe each entity which fails the validation into ProT. Therefore the ProEV is called either by ProMV, or in case of an entity process to verify the entity state. A ProEV can be an aggregated resource of sub-ProEV."
+                           ] .
+
+DEM-Process:ownedByPerson
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:EcosystemEntity ;
+        rdfs:label         "ownedByPerson"@en ;
+        rdfs:range         DEM-Process:HumanAgent ;
+        owl:inverseOf      DEM-Process:personOwns ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A human agent can own ecosystem entities."
+                           ] .
+
+DEM-Process:slotTemplate
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Process:Slot ;
+        rdfs:label         "slotTemplate"@en ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The entity template / type which instances can be passed to this process slot"
+                           ] .
+
+DEM-Process:hasMimeType
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Process:Implementation ;
+        rdfs:label         "hasMimeType"@en ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Defines the mime type of an Implementation."
+                           ] .
+
+DEM-Process:responsible
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Policy ;
+        rdfs:label         "responsible"@en ;
+        rdfs:range         DEM-Process:HumanAgent ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Refers to the responsible person for the application of the policy."
+                           ] .
+
+DEM-Process:slotNumber
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Process:Slot ;
+        rdfs:label         "slotNumber"@en ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The number of the slot as input or output parameter of the process."
+                           ] .
+
+DEM-Process:hasAutomationState
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Process ;
+        rdfs:label         "hasAutomationState"@en ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Links an Automation State to a Process."
+                           ] .
+
+DEM-Process:Role  a        owl:Class ;
+        rdfs:subClassOf    LRM:AbstractResource , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Humans can have a designated role."
+                           ] .
+
+DEM-Process:Slot  a        owl:Class ;
+        rdfs:subClassOf    DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "An input- or output slot is linked to a process and defines which entity types can be passed as input or output of the process."
+                           ] .
+
+DEM-Process:Implementation
+        a                  owl:Class ;
+        rdfs:subClassOf    DEM-Core:DigitalObject , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The implementation of a process."
+                           ] .
+
+DEM-Process:hasImplementation
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Process ;
+        rdfs:label         "hasImplementation"@en ;
+        rdfs:range         DEM-Process:Implementation ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Links an implementation entity to a Process."
+                           ] .
+
+DEM-Process:passesOutputTo
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Process:Slot ;
+        rdfs:label         "passesOutputTo"@en ;
+        rdfs:range         DEM-Process:Slot ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The output of a typed process output slot is passed to a process input slot of the same type."
+                           ] .
+
+DEM-Process:AggregatedProcess
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:AggregatedResource , LRM:ExogenousActivity , DEM-Core:Process , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A aggregated Process consists of other Processes. This entity is used to build a Process hierarchy with a tree structure."
+                           ] .
+
+DEM-Process:personOwns
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Process:HumanAgent ;
+        rdfs:label         "personOwns"@en ;
+        rdfs:range         DEM-Core:EcosystemEntity ;
+        owl:inverseOf      DEM-Process:ownedByPerson ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A human agent can own ecosystem entities."
+                           ] .
+
+DEM-Process:hasRole  a     owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:EcosystemAgent , DEM-Core:UserCommunity ;
+        rdfs:label         "hasRole"@en ;
+        rdfs:range         DEM-Process:Role ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Assigns a role to a community or to an agent."
+                           ] .
+
+DEM-Process:ProcessForModelValidation
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:ExogenousActivity , DEM-Core:Process , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A ProMV is the first process of the process triple {ProMV,ProEV,ProT} which is recommended to be modelled as process implementation of a policy. A ProMV operates on CORE_MODEL level. Its purpose is to get the set of entities which are constrained by a policy from the CORE_MODEL, and to pass each entity into a ProEV. Therefore the ProMV is called in case of policy changes, or after a huge CORE_MODEL process. A ProMV can be an aggregated resource of sub-ProMV."
+                           ] .
+
+DEM-Process:receivesInputFrom
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Process:Slot ;
+        rdfs:label         "receivesInputFrom"@en ;
+        rdfs:range         DEM-Process:Slot ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The typed process input slot receives the output from an output slot of the same type."
+                           ] .
+
+DEM-Process:hasOutputSlot
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Process:Slot ;
+        rdfs:label         "hasOutputSlot"@en ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Specifies an input slot of a process."
+                           ] .
+
+DEM-Process:processSequence
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Process:AggregatedProcess ;
+        rdfs:label         "processSequence"@en ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Order of execution of sub-processes of an aggregated process"
+                           ] .
+
+DEM-Process:HumanAgent
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:HumanAgent , LRM:Agent , DEM-Core:EcosystemAgent , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A human agent in the ecosystem executing human activities."
+                           ] .
+
+DEM-Process:hasAuthor
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:DigitalObject ;
+        rdfs:label         "hasAuthor"@en ;
+        rdfs:range         DEM-Process:HumanAgent ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Defines the author of the Digital Object."
+                           ] .
+
+DEM-Process:hasInputSlot
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Process:Slot ;
+        rdfs:label         "hasInputSlot"@en ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Specifies an output slot of a process."
+                           ] .
+
+DEM-Process:  a      owl:Ontology ;
+        owl:imports  DEM-Core: , LRM: .
+
+DEM-Process:EcosystemEvent
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:ExogenousEvent , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "An event triggered by an EcosystemActivity. Add a more specific LRM event class as second base class to describe the event type, in more detail e.g. lrm:RecurringEvent, lrm:ChangeEvent, lrm:CreationEvent, etc."
+                           ] .
+
+DEM-Process:HumanActivity
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:ExogenousActivity , DEM-Core:EcosystemActivity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A human activity is an ecosystem activity which is executed by a HumanAgent."
+                           ] .

@@ -1,0 +1,350 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:DEM-Policy="http://www.pericles-project.eu/ns/DEM-Policy#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:DEM-Core="http://www.pericles-project.eu/ns/DEM-Core#"
+    xmlns:LRM="http://xrce.xerox.com/LRM#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#">
+    <owl:imports rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#"/>
+    <owl:imports rdf:resource="http://xrce.xerox.com/LRM#"/>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#PolicyStatement">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Description"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Detailed definition of the policy contents (formal or not formal)</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#ManualDependencyCheck">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousActivity"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A quality assurance method which needs a human agent to verify a dependency.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#QualityAssuranceMethod"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#QualityAssuranceUnitTest">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousActivity"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A unit test for for quality assurance.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#QualityAssuranceMethod"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#MetaPolicy">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Plan"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A meta policy is a policy about policies which creates, deletes, modifies, enables, disables policies inside the digital ecosystem</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#QualityAssuranceMethod">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousActivity"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A method for quality assurance.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#RequirementLevel">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Description"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The requirement levels as defined in RFC 2119. This can be used to define what the desired level of compliance of a policy is. (must, must not, required, shall, shall not, should, should not, recommended, may, optional)</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#AggregatedPolicy">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AggregatedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Plan"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A aggregated policy consists of other policies.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#Risk">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Description"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Describes a risk of a policy.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#PolicyLevel">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Description"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Level of a policy, e.g. guidance, procedure, control, etc..</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#ImplementationState">
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The state of implementation of a policy.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#QualityAssuranceCriterion">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Plan"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Condition-action, rule, Unit test or other formal definition of QA methods.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#hasRisk">
+    <rdfs:label xml:lang="en">hasRisk</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The policy has a risk.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#Risk"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#verifiedBy">
+    <rdfs:label xml:lang="en">verifiedBy</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Links a Manual Dependency Check to the Agent that executes the manual qa verification.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemAgent"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#ManualDependencyCheck"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#addQACriterion">
+    <rdfs:label xml:lang="en">addQACriterion</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Refers to a quality assurance criterion for a policy.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#QualityAssuranceCriterion"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#language">
+    <rdfs:label xml:lang="en">language</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The language used for the criteria definition (natural, ReAL, SWRL, etc.)</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#PolicyStatement"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#hasImplementationState">
+    <rdfs:label xml:lang="en">hasImplementationState</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Current state of the policy: How well the policy is currently implemented.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#ImplementationState"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#format">
+    <rdfs:label xml:lang="en">format</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Formal format: if so what language used; or non formal (free text)</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#PolicyStatement"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#ensuresQACriterion">
+    <rdfs:label xml:lang="en">ensuresQACriterion</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Links to a QA criterion, which is ensured by this process.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#QualityAssuranceCriterion"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#hasRequirementLevel">
+    <rdfs:label xml:lang="en">hasRequirementLevel</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The Policy has a requirement level.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#RequirementLevel"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#validFrom">
+    <rdfs:label xml:lang="en">validFrom</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Defines a start date of a policy.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#hasPolicyLevel">
+    <rdfs:label xml:lang="en">hasPolicyLevel</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://xrce.xerox.com/LRM#describedBy"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Links a Policy entity to a Policy Level.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#PolicyLevel"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#complianceLevel">
+    <rdfs:label xml:lang="en">complianceLevel</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://xrce.xerox.com/LRM#describedBy"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Describes the level of compliance</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#RequirementLevel"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#assuresQualityOf">
+    <rdfs:label xml:lang="en">assuresQualityOf</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The Quality Assurance definition assures the quality of a designated Policy linked via this relation.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#QualityAssuranceCriterion"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#hasValidationStatus">
+    <rdfs:label xml:lang="en">hasValidationStatus</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://xrce.xerox.com/LRM#describedBy"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Links a Policy entity to a Validation Status.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#classification">
+    <rdfs:label xml:lang="en">classification</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Type of policy (TBC), such as: data management, format, access, ...</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#hasProcessSequence">
+    <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq"/>
+    <rdfs:label xml:lang="en">hasProcessSequence</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Ordered sequence of processes which implement a policy</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#AggregatedPolicy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#verifies">
+    <rdfs:label xml:lang="en">verifies</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A quality assurance method verifies that a quality assurance criterion or test is fulfilled regarding the related ecosystem entity.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#QualityAssuranceMethod"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#QualityAssuranceCriterion"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#hasImplementation">
+    <rdfs:label xml:lang="en">hasImplementation</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Links a Quality Assurance Criterion to a Quality Assurance method that implements the criterion</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#QualityAssuranceMethod"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#QualityAssuranceCriterion"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#hasPolicyType">
+    <rdfs:label xml:lang="en">hasPolicyType</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://xrce.xerox.com/LRM#describedBy"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Links a Policy entity to a Policy Type.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#hasPolicyStatement">
+    <rdfs:label xml:lang="en">hasPolicyStatement</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://xrce.xerox.com/LRM#describedBy"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Refers to the policy statement.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#PolicyStatement"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#hasMetaPolicy">
+    <rdfs:label xml:lang="en">hasMetaPolicy</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The policy has a meta policy.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#MetaPolicy"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Policy#validTo">
+    <rdfs:label xml:lang="en">validTo</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Defines an expire date of a policy.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+</rdf:RDF>

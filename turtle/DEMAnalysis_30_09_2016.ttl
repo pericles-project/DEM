@@ -1,0 +1,183 @@
+@prefix DEM-Analysis: <http://www.pericles-project.eu/ns/DEM-Analysis#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix LRM:   <http://xrce.xerox.com/LRM#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix DEM-Core: <http://www.pericles-project.eu/ns/DEM-Core#> .
+
+DEM-Analysis:purposeOf
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Analysis:Purpose ;
+        rdfs:label         "purposeOf"@en ;
+        rdfs:range         DEM-Core:EcosystemEntity ;
+        owl:inverseOf      DEM-Analysis:hasPurpose ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The purpose refers to an ecosystem entity."
+                           ] .
+
+DEM-Analysis:EcosystemDependency
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:Dependency , DEM-Analysis:WeightedRelation , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A dependency in the digital ecosystem."
+                           ] .
+
+DEM-Analysis:Purpose  a    owl:Class ;
+        rdfs:subClassOf    LRM:Intention , LRM:Plan , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The purpose allows to categorise the functions or relations of entities. E.g. preservation process has the purpose to keep the objects."
+                           ] .
+
+DEM-Analysis:annotates
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Analysis:Annotation ;
+        rdfs:label         "annotates"@en ;
+        rdfs:range         DEM-Core:EcosystemEntity ;
+        owl:inverseOf      DEM-Analysis:hasAnnotation ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Annotates an ecosystem entity."
+                           ] .
+
+DEM-Analysis:hasAnnotation
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:EcosystemEntity ;
+        rdfs:label         "hasAnnotation"@en ;
+        rdfs:range         DEM-Analysis:Annotation ;
+        owl:inverseOf      DEM-Analysis:annotates ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The ecosystem entity has an annotation."
+                           ] .
+
+DEM-Analysis:Warning  a    owl:Class ;
+        rdfs:subClassOf    DEM-Analysis:Annotation , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A warning."
+                           ] .
+
+DEM-Analysis:calculatedBy
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Analysis:WeightedRelation ;
+        rdfs:label         "calculatedBy"@en ;
+        rdfs:range         DEM-Core:EcosystemEntity ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The value of the weighted relation was calculated or meassured by the referred entity."
+                           ] .
+
+DEM-Analysis:Annotation
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:Description , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Annotation of an entity or a Weighted Relation."
+                           ] .
+
+DEM-Analysis:Cost  a       owl:Class ;
+        rdfs:subClassOf    LRM:Description , LRM:AbstractResource , LRM:Dependency , DEM-Analysis:WeightedRelation , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Adds a cost value to an entity or relation. Can also be annotated."
+                           ] .
+
+DEM-Analysis:Tag  a        owl:Class ;
+        rdfs:subClassOf    DEM-Analysis:Annotation , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A tag."
+                           ] .
+
+DEM-Analysis:WeightedRelation
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:Dependency , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "This entity corresponds to a weighted edge in the graph. It can also be used to weight entities by pointing the \"from\" and the \"to\" to the same entity."
+                           ] .
+
+DEM-Analysis:Query  a      owl:Class ;
+        rdfs:subClassOf    LRM:ExogenousActivity , DEM-Core:Process , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Either an external query submitted by a human agent or an internal process-to-process query to propagate control requests."
+                           ] .
+
+DEM-Analysis:taggedBy
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:EcosystemEntity ;
+        rdfs:label         "taggedBy"@en ;
+        rdfs:range         DEM-Analysis:Tag ;
+        owl:inverseOf      DEM-Analysis:tags ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "This entity is tagged by a tag."
+                           ] .
+
+DEM-Analysis:  a     owl:Ontology ;
+        owl:imports  DEM-Core: , LRM: .
+
+DEM-Analysis:hasPurpose
+        a                   owl:ObjectProperty ;
+        rdfs:domain         DEM-Core:EcosystemEntity ;
+        rdfs:label          "hasPurpose"@en ;
+        rdfs:range          DEM-Analysis:Purpose ;
+        rdfs:subPropertyOf  LRM:intention ;
+        owl:inverseOf       DEM-Analysis:purposeOf ;
+        LRM:specification   [ a               LRM:Description ;
+                              LRM:definition  "The ecosystem entity has a specific purpose."
+                            ] .
+
+DEM-Analysis:Significance
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:Description , LRM:AbstractResource , LRM:Dependency , DEM-Analysis:WeightedRelation , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A weighted relation which expresses the significance of an Ecosystem Entity for an other Ecosystem Entity, e.g. for a Scenario or a Purpose."
+                           ] .
+
+DEM-Analysis:SemanticDrift
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:Description , LRM:AbstractResource , LRM:Dependency , DEM-Analysis:WeightedRelation , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "This weighted relation points from an Ecosystem Entity to an earlier version of the same Ecosystem Entity, or to another Ecosystem Entity with huge semantic similarities. It is used to express the semantic drift between these two entities."
+                           ] .
+
+DEM-Analysis:Error  a      owl:Class ;
+        rdfs:subClassOf    DEM-Analysis:Annotation , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "An Error."
+                           ] .
+
+DEM-Analysis:costOf  a     owl:ObjectProperty ;
+        rdfs:domain        DEM-Analysis:Cost ;
+        rdfs:label         "costOf"@en ;
+        rdfs:range         DEM-Core:EcosystemEntity ;
+        owl:inverseOf      DEM-Analysis:hasCost ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "This value is the cost value of the referred entity."
+                           ] .
+
+DEM-Analysis:tags  a       owl:ObjectProperty ;
+        rdfs:domain        DEM-Analysis:Tag ;
+        rdfs:label         "tags"@en ;
+        rdfs:range         DEM-Core:EcosystemEntity ;
+        owl:inverseOf      DEM-Analysis:taggedBy ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "This tag tags the referred entities"
+                           ] .
+
+DEM-Analysis:hasValue
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Analysis:WeightedRelation ;
+        rdfs:label         "hasValue"@en ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Assigns a weight to a weighted relation."
+                           ] .
+
+DEM-Analysis:hasCost  a    owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:EcosystemEntity ;
+        rdfs:label         "hasCost"@en ;
+        rdfs:range         DEM-Analysis:Cost ;
+        owl:inverseOf      DEM-Analysis:costOf ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "This entity has a cost value"
+                           ] .
+
+DEM-Analysis:Scenario
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:AggregatedResource , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The scenario entity is the view on the ontology. A scenario contains a collection of several entities. Each scenario can have unique weighting of the entities."
+                           ] .

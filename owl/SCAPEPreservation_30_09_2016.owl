@@ -1,0 +1,150 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:SCAPE-Preservation="http://www.pericles-project.eu/ns/DEM-preservation#"
+    xmlns:DEM-Policy="http://www.pericles-project.eu/ns/DEM-Policy#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:DEM-Core="http://www.pericles-project.eu/ns/DEM-Core#"
+    xmlns:LRM="http://xrce.xerox.com/LRM#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://www.pericles-project.eu/ns/DEM-preservation#">
+    <owl:imports rdf:resource="http://www.pericles-project.eu/ns/DEM-Policy#"/>
+    <owl:imports rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#"/>
+    <owl:imports rdf:resource="http://xrce.xerox.com/LRM#"/>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-preservation#GuidancePolicyFunctionalPreservation">
+    <rdfs:subClassOf rdf:resource="http://purl.org/DP/guidance#FunctionalPreservation"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Plan"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>http://wiki.opf-labs.org/display/SP/3.+Guidance+Policy+Functional+Preservation</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-preservation#DigitalPreservationPolicy"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-preservation#GuidancePolicyMetadata">
+    <rdfs:subClassOf rdf:resource="http://purl.org/DP/guidance#Metadata"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Plan"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>http://wiki.opf-labs.org/display/SP/5.+Guidance+Policy+Metadata</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-preservation#DigitalPreservationPolicy"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-preservation#GuidancePolicyOrganisation">
+    <rdfs:subClassOf rdf:resource="http://purl.org/DP/guidance#Organisation"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Plan"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>http://wiki.opf-labs.org/display/SP/9.+Guidance+Policy+Organisation</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-preservation#DigitalPreservationPolicy"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-preservation#DigitalPreservationPolicy">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Plan"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A policy for digital preservation.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-preservation#GuidancePolicyRights">
+    <rdfs:subClassOf rdf:resource="http://purl.org/DP/guidance#Rights"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Plan"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>http://wiki.opf-labs.org/display/SP/6.+Guidance+Policy+Rights</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-preservation#DigitalPreservationPolicy"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-preservation#GuidancePolicyBitPreservation">
+    <rdfs:subClassOf rdf:resource="http://purl.org/DP/guidance#BitPreservation"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Plan"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>http://wiki.opf-labs.org/display/SP/2.+Guidance+Policy+Bit+Preservation</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-preservation#DigitalPreservationPolicy"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-preservation#GuidancePolicyAuthenticity">
+    <rdfs:subClassOf rdf:resource="http://purl.org/DP/guidance#Authenticity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Plan"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>http://wiki.opf-labs.org/display/SP/1.+Guidance+Policy+Authenticity</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-preservation#DigitalPreservationPolicy"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-preservation#GuidancePolicyStandards">
+    <rdfs:subClassOf rdf:resource="http://purl.org/DP/guidance#Standards"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Plan"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>http://wiki.opf-labs.org/display/SP/7.+Guidance+Policy+Standards</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-preservation#DigitalPreservationPolicy"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-preservation#GuidancePolicyTrustworthyDigitalRepositories">
+    <rdfs:subClassOf rdf:resource="http://purl.org/DP/guidance#TrustworthyDigitalRepositories"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Plan"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>http://wiki.opf-labs.org/</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-preservation#DigitalPreservationPolicy"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-preservation#GuidancePolicyAccess">
+    <rdfs:subClassOf rdf:resource="http://purl.org/DP/guidance#Access"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Plan"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>http://wiki.opf-labs.org/display/SP/8.+Guidance+Policy+Access</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-preservation#DigitalPreservationPolicy"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+</rdf:RDF>

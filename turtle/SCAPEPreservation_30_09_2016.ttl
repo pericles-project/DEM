@@ -1,0 +1,81 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix LRM:   <http://xrce.xerox.com/LRM#> .
+@prefix SCAPE-Preservation: <http://www.pericles-project.eu/ns/DEM-preservation#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix DEM-Policy: <http://www.pericles-project.eu/ns/DEM-Policy#> .
+@prefix DEM-Core: <http://www.pericles-project.eu/ns/DEM-Core#> .
+
+SCAPE-Preservation:GuidancePolicyBitPreservation
+        a                  owl:Class ;
+        rdfs:subClassOf    <http://purl.org/DP/guidance#BitPreservation> , LRM:AbstractResource , LRM:Plan , SCAPE-Preservation:DigitalPreservationPolicy , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "http://wiki.opf-labs.org/display/SP/2.+Guidance+Policy+Bit+Preservation"
+                           ] .
+
+SCAPE-Preservation:  a  owl:Ontology ;
+        owl:imports  DEM-Policy: , DEM-Core: , LRM: .
+
+SCAPE-Preservation:GuidancePolicyAuthenticity
+        a                  owl:Class ;
+        rdfs:subClassOf    <http://purl.org/DP/guidance#Authenticity> , LRM:AbstractResource , LRM:Plan , SCAPE-Preservation:DigitalPreservationPolicy , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "http://wiki.opf-labs.org/display/SP/1.+Guidance+Policy+Authenticity"
+                           ] .
+
+SCAPE-Preservation:GuidancePolicyFunctionalPreservation
+        a                  owl:Class ;
+        rdfs:subClassOf    <http://purl.org/DP/guidance#FunctionalPreservation> , LRM:AbstractResource , LRM:Plan , SCAPE-Preservation:DigitalPreservationPolicy , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "http://wiki.opf-labs.org/display/SP/3.+Guidance+Policy+Functional+Preservation"
+                           ] .
+
+SCAPE-Preservation:GuidancePolicyOrganisation
+        a                  owl:Class ;
+        rdfs:subClassOf    <http://purl.org/DP/guidance#Organisation> , LRM:AbstractResource , LRM:Plan , SCAPE-Preservation:DigitalPreservationPolicy , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "http://wiki.opf-labs.org/display/SP/9.+Guidance+Policy+Organisation"
+                           ] .
+
+SCAPE-Preservation:DigitalPreservationPolicy
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:AbstractResource , LRM:Plan , DEM-Core:Policy , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A policy for digital preservation."
+                           ] .
+
+SCAPE-Preservation:GuidancePolicyRights
+        a                  owl:Class ;
+        rdfs:subClassOf    <http://purl.org/DP/guidance#Rights> , LRM:AbstractResource , LRM:Plan , SCAPE-Preservation:DigitalPreservationPolicy , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "http://wiki.opf-labs.org/display/SP/6.+Guidance+Policy+Rights"
+                           ] .
+
+SCAPE-Preservation:GuidancePolicyStandards
+        a                  owl:Class ;
+        rdfs:subClassOf    <http://purl.org/DP/guidance#Standards> , LRM:AbstractResource , LRM:Plan , SCAPE-Preservation:DigitalPreservationPolicy , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "http://wiki.opf-labs.org/display/SP/7.+Guidance+Policy+Standards"
+                           ] .
+
+SCAPE-Preservation:GuidancePolicyAccess
+        a                  owl:Class ;
+        rdfs:subClassOf    <http://purl.org/DP/guidance#Access> , LRM:AbstractResource , LRM:Plan , SCAPE-Preservation:DigitalPreservationPolicy , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "http://wiki.opf-labs.org/display/SP/8.+Guidance+Policy+Access"
+                           ] .
+
+SCAPE-Preservation:GuidancePolicyMetadata
+        a                  owl:Class ;
+        rdfs:subClassOf    <http://purl.org/DP/guidance#Metadata> , LRM:AbstractResource , LRM:Plan , SCAPE-Preservation:DigitalPreservationPolicy , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "http://wiki.opf-labs.org/display/SP/5.+Guidance+Policy+Metadata"
+                           ] .
+
+SCAPE-Preservation:GuidancePolicyTrustworthyDigitalRepositories
+        a                  owl:Class ;
+        rdfs:subClassOf    <http://purl.org/DP/guidance#TrustworthyDigitalRepositories> , LRM:AbstractResource , LRM:Plan , SCAPE-Preservation:DigitalPreservationPolicy , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "http://wiki.opf-labs.org/"
+                           ] .

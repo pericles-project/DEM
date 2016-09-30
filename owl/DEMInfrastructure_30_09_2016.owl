@@ -1,0 +1,141 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:DEM-Infrastructure="http://www.pericles-project.eu/ns/DEM-Infrastructure#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:DEM-Core="http://www.pericles-project.eu/ns/DEM-Core#"
+    xmlns:LRM="http://xrce.xerox.com/LRM#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://www.pericles-project.eu/ns/DEM-Infrastructure#">
+    <owl:imports rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#"/>
+    <owl:imports rdf:resource="http://xrce.xerox.com/LRM#"/>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Infrastructure#SoftwareAgent">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#SoftwareAgent"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Infrastructure#AutomaticAgent"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Agent"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A software agent infrastructure component.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemAgent"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Infrastructure#ServiceInterface">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ConcreteResource"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The interface of a technical system. Ecosystem agents use a service interface to access a technical system.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Infrastructure#InfrastructureComponent"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Infrastructure#InfrastructureComponent">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ConcreteResource"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A component of the technical infrastructure. An infrastructure component is part of a technical service.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Infrastructure#HardwareAgent">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Agent"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>An infrastructure component which is realised as hardware agent.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Infrastructure#AutomaticAgent"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Infrastructure#AutomatisedActivity">
+    <LRM:executedBy>
+      <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Infrastructure#AutomaticAgent"/>
+    </LRM:executedBy>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousActivity"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>An automatised activity is an ecosystem activity which is executed by a Hard- or SoftwareAgent.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemActivity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Infrastructure#AutomaticAgent">
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Infrastructure#InfrastructureComponent"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Agent"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>An automatic agent is a non-human agent in the infrastructure of a technical system.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemAgent"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Infrastructure#isUsedBy">
+    <rdfs:label xml:lang="en">isUsedBy</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>This relation can be used to express that an agent uses an interface to access technical services, as well as that a community uses such an interface.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemAgent"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Infrastructure#ServiceInterface"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Infrastructure#providesAccessTo">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Infrastructure#accessedVia"/>
+    </owl:inverseOf>
+    <rdfs:label xml:lang="en">providesAccessTo</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The service interface provides access to digital objects, technical services, processes, or infrastructure components as hardware- or softwareagents.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Infrastructure#InfrastructureComponent"/>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#TechnicalService"/>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#DigitalObject"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Infrastructure#ServiceInterface"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Infrastructure#runsOn">
+    <rdfs:label xml:lang="en">runsOn</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A software or hardware agent runs on a server.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#TechnicalService"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Infrastructure#AutomaticAgent"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Infrastructure#accessedVia">
+    <rdfs:label xml:lang="en">accessedVia</rdfs:label>
+    <owl:inverseOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Infrastructure#providesAccessTo"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>This component is accessed via a service interface.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Infrastructure#ServiceInterface"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Infrastructure#InfrastructureComponent"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#TechnicalService"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#DigitalObject"/>
+  </owl:ObjectProperty>
+</rdf:RDF>

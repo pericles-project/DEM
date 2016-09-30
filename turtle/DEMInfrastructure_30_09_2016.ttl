@@ -1,0 +1,91 @@
+@prefix DEM-Infrastructure: <http://www.pericles-project.eu/ns/DEM-Infrastructure#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix LRM:   <http://xrce.xerox.com/LRM#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix DEM-Core: <http://www.pericles-project.eu/ns/DEM-Core#> .
+
+DEM-Infrastructure:AutomatisedActivity
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:ExogenousActivity , DEM-Core:EcosystemActivity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:executedBy     DEM-Infrastructure:AutomaticAgent ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "An automatised activity is an ecosystem activity which is executed by a Hard- or SoftwareAgent."
+                           ] .
+
+DEM-Infrastructure:InfrastructureComponent
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:ConcreteResource , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A component of the technical infrastructure. An infrastructure component is part of a technical service."
+                           ] .
+
+DEM-Infrastructure:  a  owl:Ontology ;
+        owl:imports  DEM-Core: , LRM: .
+
+DEM-Infrastructure:ServiceInterface
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:ConcreteResource , DEM-Infrastructure:InfrastructureComponent , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The interface of a technical system. Ecosystem agents use a service interface to access a technical system."
+                           ] .
+
+DEM-Infrastructure:HardwareAgent
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:Agent , DEM-Infrastructure:AutomaticAgent , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "An infrastructure component which is realised as hardware agent."
+                           ] .
+
+DEM-Infrastructure:AutomaticAgent
+        a                  owl:Class ;
+        rdfs:subClassOf    DEM-Infrastructure:InfrastructureComponent , LRM:Agent , DEM-Core:EcosystemAgent , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "An automatic agent is a non-human agent in the infrastructure of a technical system."
+                           ] .
+
+DEM-Infrastructure:runsOn
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Infrastructure:AutomaticAgent ;
+        rdfs:label         "runsOn"@en ;
+        rdfs:range         DEM-Core:TechnicalService ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A software or hardware agent runs on a server."
+                           ] .
+
+DEM-Infrastructure:SoftwareAgent
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:SoftwareAgent , DEM-Infrastructure:AutomaticAgent , LRM:Agent , DEM-Core:EcosystemAgent , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A software agent infrastructure component."
+                           ] .
+
+DEM-Infrastructure:isUsedBy
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Infrastructure:ServiceInterface ;
+        rdfs:label         "isUsedBy"@en ;
+        rdfs:range         DEM-Core:EcosystemAgent ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "This relation can be used to express that an agent uses an interface to access technical services, as well as that a community uses such an interface."
+                           ] .
+
+DEM-Infrastructure:providesAccessTo
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Infrastructure:ServiceInterface ;
+        rdfs:label         "providesAccessTo"@en ;
+        rdfs:range         DEM-Infrastructure:InfrastructureComponent , DEM-Core:Process , DEM-Core:TechnicalService , DEM-Core:DigitalObject ;
+        owl:inverseOf      DEM-Infrastructure:accessedVia ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The service interface provides access to digital objects, technical services, processes, or infrastructure components as hardware- or softwareagents."
+                           ] .
+
+DEM-Infrastructure:accessedVia
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Infrastructure:InfrastructureComponent , DEM-Core:TechnicalService , DEM-Core:Process , DEM-Core:DigitalObject ;
+        rdfs:label         "accessedVia"@en ;
+        rdfs:range         DEM-Infrastructure:ServiceInterface ;
+        owl:inverseOf      DEM-Infrastructure:providesAccessTo ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "This component is accessed via a service interface."
+                           ] .

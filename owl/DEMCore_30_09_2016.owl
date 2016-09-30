@@ -1,0 +1,319 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:DEM-Core="http://www.pericles-project.eu/ns/DEM-Core#"
+    xmlns:LRM="http://xrce.xerox.com/LRM#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <owl:Ontology rdf:about="http://www.pericles-project.eu/ns/DEM-Core#">
+    <owl:imports rdf:resource="http://xrce.xerox.com/LRM#"/>
+  </owl:Ontology>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Core#UserCommunity">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Organization"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Core#EcosystemAgent"/>
+    </rdfs:subClassOf>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A group of humans. A community can consist of one or more humans.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Core#TechnicalService">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AggregatedResource"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A Technical Service is a infrastructure consisting of hard- and software components and service interfaces. A Technical Service provides services for the ecosystem, which can be accessed by its service interfaces. A technical service consists of infrastructure components, digital objects, processes, and other technical services.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity">
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>This is an abstract template entity that holds some common relations that are inherited by all ecosystem entities.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Core#DigitalObject">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AggregatedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#DigitalResource"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A Digital Object represents any item that is available digitally. It can be an aggregation of other digital objects.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Core#EcosystemActivity">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousActivity"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>An activity executed by an EcosystemAgent. Add a specific activity class from the LRM as second base class to specify the activity type, e.g. lrm:ActivityStarted, lrm:ActivityStopped, lrm:ActivitySuspended, lrm:ActivityResumed.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Core#Process">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousActivity"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A process is a description of linked steps on how to transform an input to a certain output.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemActivity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Core#Policy">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#AbstractResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Plan"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A policy is a plan that defines the desired state inside a digital ecosystem. A policy describes the 'what' (guidelines) and not the 'how' (implementation).</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.pericles-project.eu/ns/DEM-Core#EcosystemAgent">
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#Agent"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>An agent in the ecosystem.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:subClassOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#VersionedResource"/>
+    <rdfs:subClassOf rdf:resource="http://xrce.xerox.com/LRM#ExogenousResource"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#targetCommunity">
+    <rdfs:label xml:lang="en">targetCommunity</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The community for which the policy has been designed.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#UserCommunity"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#isEnforcedBy">
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#isImplementationOf"/>
+    </owl:inverseOf>
+    <rdfs:label xml:lang="en">isEnforcedBy</rdfs:label>
+    <rdfs:subPropertyOf rdf:resource="http://xrce.xerox.com/LRM#implementedBy"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A Process can be the implementation of a Policy.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#checksum">
+    <rdfs:label xml:lang="en">checksum</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The checksum of a digital object.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#DigitalObject"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#manages">
+    <rdfs:label xml:lang="en">manages</rdfs:label>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#managedBy"/>
+    </owl:inverseOf>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A Process can manage all ecosystem entities.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#runsOn">
+    <rdfs:label xml:lang="en">runsOn</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Relation to the technical service infrastructure on which the process is executed.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#TechnicalService"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#hasInput">
+    <rdfs:label xml:lang="en">hasInput</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The input of the process.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#derivedFromPolicy">
+    <rdfs:label xml:lang="en">derivedFromPolicy</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A Policy can be derived from a higher level policy. It is therewith not a sub policy of the higher level policy, but a derivation of it.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#hasMandator">
+    <rdfs:label xml:lang="en">hasMandator</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The entity that mandates or generates the policy. The mandator could be also a reference to a legal requirement (in case that a policy is mandated by a legal requirement) or a directive.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#replacedBy">
+    <rdfs:label xml:lang="en">replacedBy</rdfs:label>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#replaces"/>
+    </owl:inverseOf>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Refers to a policy which replaces this policy.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#communityCowns">
+    <rdfs:label xml:lang="en">communityCowns</rdfs:label>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#ownedByCommunity"/>
+    </owl:inverseOf>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A group of humans can own ecosystem entities.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#UserCommunity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#function">
+    <rdfs:label xml:lang="en">function</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The function the process performs, or its purpose.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#ownedByCommunity">
+    <owl:inverseOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#communityCowns"/>
+    <rdfs:label xml:lang="en">ownedByCommunity</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A community can own ecosystem entities.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#UserCommunity"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#constrains">
+    <rdfs:label xml:lang="en">constrains</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Refers to an ecosystem entity which is constrained by the policy.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#derivedFromObject">
+    <rdfs:label xml:lang="en">derivedFromObject</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A Digital Object can be derived from another Digital Object. Then it is not a sub object, but a derivation.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#DigitalObject"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#DigitalObject"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#isImplementationOf">
+    <rdfs:label xml:lang="en">isImplementationOf</rdfs:label>
+    <owl:inverseOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#isEnforcedBy"/>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>A Policy can be implemented by a Process.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#managedBy">
+    <owl:inverseOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#manages"/>
+    <rdfs:label xml:lang="en">managedBy</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>This entity is managed by a process.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#UserCommunity"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#replaces">
+    <owl:inverseOf rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#replacedBy"/>
+    <rdfs:label xml:lang="en">replaces</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Refers to an old policy which is replaced by this policy.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#hasOutput">
+    <rdfs:label xml:lang="en">hasOutput</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>The output of the process.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:range rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#EcosystemEntity"/>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#hasLink">
+    <rdfs:label xml:lang="en">hasLink</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Link to the BPMN implementation.</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Process"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://www.pericles-project.eu/ns/DEM-Core#hasConflictIDAttribute">
+    <rdfs:label xml:lang="en">hasConflictIDAttribute</rdfs:label>
+    <LRM:specification>
+      <LRM:Description>
+        <LRM:definition>Attribute for conflicting policies detection</LRM:definition>
+      </LRM:Description>
+    </LRM:specification>
+    <rdfs:domain rdf:resource="http://www.pericles-project.eu/ns/DEM-Core#Policy"/>
+  </owl:ObjectProperty>
+</rdf:RDF>

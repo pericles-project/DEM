@@ -1,0 +1,236 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix LRM:   <http://xrce.xerox.com/LRM#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix DEM-Core: <http://www.pericles-project.eu/ns/DEM-Core#> .
+
+DEM-Core:hasInput  a       owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Process ;
+        rdfs:label         "hasInput"@en ;
+        rdfs:range         DEM-Core:EcosystemEntity ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The input of the process."
+                           ] .
+
+DEM-Core:replaces  a       owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Policy ;
+        rdfs:label         "replaces"@en ;
+        rdfs:range         DEM-Core:Policy ;
+        owl:inverseOf      DEM-Core:replacedBy ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Refers to an old policy which is replaced by this policy."
+                           ] .
+
+DEM-Core:hasMandator  a    owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Policy ;
+        rdfs:label         "hasMandator"@en ;
+        rdfs:range         DEM-Core:EcosystemEntity ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The entity that mandates or generates the policy. The mandator could be also a reference to a legal requirement (in case that a policy is mandated by a legal requirement) or a directive."
+                           ] .
+
+DEM-Core:EcosystemEntity
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "This is an abstract template entity that holds some common relations that are inherited by all ecosystem entities."
+                           ] .
+
+DEM-Core:  a         owl:Ontology ;
+        owl:imports  LRM: .
+
+DEM-Core:Policy  a         owl:Class ;
+        rdfs:subClassOf    LRM:AbstractResource , LRM:Plan , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A policy is a plan that defines the desired state inside a digital ecosystem. A policy describes the 'what' (guidelines) and not the 'how' (implementation)."
+                           ] .
+
+DEM-Core:manages  a        owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Process ;
+        rdfs:label         "manages"@en ;
+        rdfs:range         DEM-Core:EcosystemEntity ;
+        owl:inverseOf      DEM-Core:managedBy ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A Process can manage all ecosystem entities."
+                           ] .
+
+DEM-Core:derivedFromPolicy
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Policy ;
+        rdfs:label         "derivedFromPolicy"@en ;
+        rdfs:range         DEM-Core:Policy ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A Policy can be derived from a higher level policy. It is therewith not a sub policy of the higher level policy, but a derivation of it."
+                           ] .
+
+DEM-Core:runsOn  a         owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Process ;
+        rdfs:label         "runsOn"@en ;
+        rdfs:range         DEM-Core:TechnicalService ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Relation to the technical service infrastructure on which the process is executed."
+                           ] .
+
+DEM-Core:TechnicalService
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:AggregatedResource , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A Technical Service is a infrastructure consisting of hard- and software components and service interfaces. A Technical Service provides services for the ecosystem, which can be accessed by its service interfaces. A technical service consists of infrastructure components, digital objects, processes, and other technical services."
+                           ] .
+
+DEM-Core:isImplementationOf
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Process ;
+        rdfs:label         "isImplementationOf"@en ;
+        rdfs:range         DEM-Core:Policy ;
+        owl:inverseOf      DEM-Core:isEnforcedBy ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A Policy can be implemented by a Process."
+                           ] .
+
+DEM-Core:managedBy  a      owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:EcosystemEntity ;
+        rdfs:label         "managedBy"@en ;
+        rdfs:range         DEM-Core:UserCommunity ;
+        owl:inverseOf      DEM-Core:manages ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "This entity is managed by a process."
+                           ] .
+
+DEM-Core:derivedFromObject
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:DigitalObject ;
+        rdfs:label         "derivedFromObject"@en ;
+        rdfs:range         DEM-Core:DigitalObject ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A Digital Object can be derived from another Digital Object. Then it is not a sub object, but a derivation."
+                           ] .
+
+DEM-Core:UserCommunity
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:Organization , DEM-Core:EcosystemAgent , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A group of humans. A community can consist of one or more humans."
+                           ] .
+
+DEM-Core:Process  a        owl:Class ;
+        rdfs:subClassOf    LRM:ExogenousActivity , DEM-Core:EcosystemActivity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A process is a description of linked steps on how to transform an input to a certain output."
+                           ] .
+
+DEM-Core:checksum  a       owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:DigitalObject ;
+        rdfs:label         "checksum"@en ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The checksum of a digital object."
+                           ] .
+
+DEM-Core:hasConflictIDAttribute
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Policy ;
+        rdfs:label         "hasConflictIDAttribute"@en ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Attribute for conflicting policies detection"
+                           ] .
+
+DEM-Core:hasOutput  a      owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Process ;
+        rdfs:label         "hasOutput"@en ;
+        rdfs:range         DEM-Core:EcosystemEntity ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The output of the process."
+                           ] .
+
+DEM-Core:communityCowns
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:UserCommunity ;
+        rdfs:label         "communityCowns"@en ;
+        rdfs:range         DEM-Core:EcosystemEntity ;
+        owl:inverseOf      DEM-Core:ownedByCommunity ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A group of humans can own ecosystem entities."
+                           ] .
+
+DEM-Core:replacedBy  a     owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Policy ;
+        rdfs:label         "replacedBy"@en ;
+        rdfs:range         DEM-Core:Policy ;
+        owl:inverseOf      DEM-Core:replaces ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Refers to a policy which replaces this policy."
+                           ] .
+
+DEM-Core:EcosystemActivity
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:ExogenousActivity , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "An activity executed by an EcosystemAgent. Add a specific activity class from the LRM as second base class to specify the activity type, e.g. lrm:ActivityStarted, lrm:ActivityStopped, lrm:ActivitySuspended, lrm:ActivityResumed."
+                           ] .
+
+DEM-Core:ownedByCommunity
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:EcosystemEntity ;
+        rdfs:label         "ownedByCommunity"@en ;
+        rdfs:range         DEM-Core:UserCommunity ;
+        owl:inverseOf      DEM-Core:communityCowns ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A community can own ecosystem entities."
+                           ] .
+
+DEM-Core:isEnforcedBy
+        a                   owl:ObjectProperty ;
+        rdfs:domain         DEM-Core:Process ;
+        rdfs:label          "isEnforcedBy"@en ;
+        rdfs:range          DEM-Core:Process ;
+        rdfs:subPropertyOf  LRM:implementedBy ;
+        owl:inverseOf       DEM-Core:isImplementationOf ;
+        LRM:specification   [ a               LRM:Description ;
+                              LRM:definition  "A Process can be the implementation of a Policy."
+                            ] .
+
+DEM-Core:DigitalObject
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:AggregatedResource , LRM:DigitalResource , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A Digital Object represents any item that is available digitally. It can be an aggregation of other digital objects."
+                           ] .
+
+DEM-Core:targetCommunity
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Policy ;
+        rdfs:label         "targetCommunity"@en ;
+        rdfs:range         DEM-Core:UserCommunity ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The community for which the policy has been designed."
+                           ] .
+
+DEM-Core:function  a       owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Process ;
+        rdfs:label         "function"@en ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The function the process performs, or its purpose."
+                           ] .
+
+DEM-Core:hasLink  a        owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Process ;
+        rdfs:label         "hasLink"@en ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Link to the BPMN implementation."
+                           ] .
+
+DEM-Core:constrains  a     owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Policy ;
+        rdfs:label         "constrains"@en ;
+        rdfs:range         DEM-Core:EcosystemEntity ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Refers to an ecosystem entity which is constrained by the policy."
+                           ] .
+
+DEM-Core:EcosystemAgent
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:Agent , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "An agent in the ecosystem."
+                           ] .

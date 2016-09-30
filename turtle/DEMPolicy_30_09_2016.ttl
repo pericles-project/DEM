@@ -1,0 +1,266 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix LRM:   <http://xrce.xerox.com/LRM#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix DEM-Policy: <http://www.pericles-project.eu/ns/DEM-Policy#> .
+@prefix DEM-Core: <http://www.pericles-project.eu/ns/DEM-Core#> .
+
+DEM-Policy:hasMetaPolicy
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Policy ;
+        rdfs:label         "hasMetaPolicy"@en ;
+        rdfs:range         DEM-Policy:MetaPolicy ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The policy has a meta policy."
+                           ] .
+
+DEM-Policy:AggregatedPolicy
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:AggregatedResource , LRM:AbstractResource , LRM:Plan , DEM-Core:Policy , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A aggregated policy consists of other policies."
+                           ] .
+
+DEM-Policy:language  a     owl:ObjectProperty ;
+        rdfs:domain        DEM-Policy:PolicyStatement ;
+        rdfs:label         "language"@en ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The language used for the criteria definition (natural, ReAL, SWRL, etc.)"
+                           ] .
+
+DEM-Policy:ManualDependencyCheck
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:ExogenousActivity , DEM-Policy:QualityAssuranceMethod , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A quality assurance method which needs a human agent to verify a dependency."
+                           ] .
+
+DEM-Policy:RequirementLevel
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:Description , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The requirement levels as defined in RFC 2119. This can be used to define what the desired level of compliance of a policy is. (must, must not, required, shall, shall not, should, should not, recommended, may, optional)"
+                           ] .
+
+DEM-Policy:complianceLevel
+        a                   owl:ObjectProperty ;
+        rdfs:domain         DEM-Policy:RequirementLevel ;
+        rdfs:label          "complianceLevel"@en ;
+        rdfs:subPropertyOf  LRM:describedBy ;
+        LRM:specification   [ a               LRM:Description ;
+                              LRM:definition  "Describes the level of compliance"
+                            ] .
+
+DEM-Policy:QualityAssuranceCriterion
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:AbstractResource , LRM:Plan , DEM-Core:Policy , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Condition-action, rule, Unit test or other formal definition of QA methods."
+                           ] .
+
+DEM-Policy:validTo  a      owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Policy ;
+        rdfs:label         "validTo"@en ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Defines an expire date of a policy."
+                           ] .
+
+DEM-Policy:hasImplementation
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Policy:QualityAssuranceCriterion ;
+        rdfs:label         "hasImplementation"@en ;
+        rdfs:range         DEM-Policy:QualityAssuranceMethod ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Links a Quality Assurance Criterion to a Quality Assurance method that implements the criterion"
+                           ] .
+
+DEM-Policy:Risk  a         owl:Class ;
+        rdfs:subClassOf    LRM:Description , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Describes a risk of a policy."
+                           ] .
+
+DEM-Policy:ensuresQACriterion
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Process ;
+        rdfs:label         "ensuresQACriterion"@en ;
+        rdfs:range         DEM-Policy:QualityAssuranceCriterion ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Links to a QA criterion, which is ensured by this process."
+                           ] .
+
+DEM-Policy:PolicyStatement
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:Description , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Detailed definition of the policy contents (formal or not formal)"
+                           ] .
+
+DEM-Policy:QualityAssuranceMethod
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:ExogenousActivity , DEM-Core:Process , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A method for quality assurance."
+                           ] .
+
+DEM-Policy:hasPolicyType
+        a                   owl:ObjectProperty ;
+        rdfs:domain         DEM-Core:Policy ;
+        rdfs:label          "hasPolicyType"@en ;
+        rdfs:subPropertyOf  LRM:describedBy ;
+        LRM:specification   [ a               LRM:Description ;
+                              LRM:definition  "Links a Policy entity to a Policy Type."
+                            ] .
+
+DEM-Policy:validFrom  a    owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Policy ;
+        rdfs:label         "validFrom"@en ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Defines a start date of a policy."
+                           ] .
+
+DEM-Policy:  a       owl:Ontology ;
+        owl:imports  DEM-Core: , LRM: .
+
+DEM-Policy:ImplementationState
+        a                  owl:Class ;
+        rdfs:subClassOf    DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The state of implementation of a policy."
+                           ] .
+
+DEM-Policy:verifiedBy
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Policy:ManualDependencyCheck ;
+        rdfs:label         "verifiedBy"@en ;
+        rdfs:range         DEM-Core:EcosystemAgent ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Links a Manual Dependency Check to the Agent that executes the manual qa verification."
+                           ] .
+
+DEM-Policy:PolicyLevel
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:Description , DEM-Core:EcosystemEntity , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Level of a policy, e.g. guidance, procedure, control, etc.."
+                           ] .
+
+DEM-Policy:hasImplementationState
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Policy ;
+        rdfs:label         "hasImplementationState"@en ;
+        rdfs:range         DEM-Policy:ImplementationState ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Current state of the policy: How well the policy is currently implemented."
+                           ] .
+
+DEM-Policy:classification
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Policy ;
+        rdfs:label         "classification"@en ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Type of policy (TBC), such as: data management, format, access, ..."
+                           ] .
+
+DEM-Policy:QualityAssuranceUnitTest
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:ExogenousActivity , DEM-Policy:QualityAssuranceMethod , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A unit test for for quality assurance."
+                           ] .
+
+DEM-Policy:hasRequirementLevel
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Policy ;
+        rdfs:label         "hasRequirementLevel"@en ;
+        rdfs:range         DEM-Policy:RequirementLevel ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The Policy has a requirement level."
+                           ] .
+
+DEM-Policy:assuresQualityOf
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Policy:QualityAssuranceCriterion ;
+        rdfs:label         "assuresQualityOf"@en ;
+        rdfs:range         DEM-Core:Policy ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The Quality Assurance definition assures the quality of a designated Policy linked via this relation."
+                           ] .
+
+DEM-Policy:hasPolicyLevel
+        a                   owl:ObjectProperty ;
+        rdfs:domain         DEM-Core:Policy ;
+        rdfs:label          "hasPolicyLevel"@en ;
+        rdfs:range          DEM-Policy:PolicyLevel ;
+        rdfs:subPropertyOf  LRM:describedBy ;
+        LRM:specification   [ a               LRM:Description ;
+                              LRM:definition  "Links a Policy entity to a Policy Level."
+                            ] .
+
+DEM-Policy:hasValidationStatus
+        a                   owl:ObjectProperty ;
+        rdfs:domain         DEM-Core:Policy ;
+        rdfs:label          "hasValidationStatus"@en ;
+        rdfs:subPropertyOf  LRM:describedBy ;
+        LRM:specification   [ a               LRM:Description ;
+                              LRM:definition  "Links a Policy entity to a Validation Status."
+                            ] .
+
+DEM-Policy:format  a       owl:ObjectProperty ;
+        rdfs:domain        DEM-Policy:PolicyStatement ;
+        rdfs:label         "format"@en ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Formal format: if so what language used; or non formal (free text)"
+                           ] .
+
+DEM-Policy:hasPolicyStatement
+        a                   owl:ObjectProperty ;
+        rdfs:domain         DEM-Core:Policy ;
+        rdfs:label          "hasPolicyStatement"@en ;
+        rdfs:range          DEM-Policy:PolicyStatement ;
+        rdfs:subPropertyOf  LRM:describedBy ;
+        LRM:specification   [ a               LRM:Description ;
+                              LRM:definition  "Refers to the policy statement."
+                            ] .
+
+DEM-Policy:MetaPolicy
+        a                  owl:Class ;
+        rdfs:subClassOf    LRM:AbstractResource , LRM:Plan , DEM-Core:Policy , LRM:VersionedResource , LRM:ExogenousResource ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A meta policy is a policy about policies which creates, deletes, modifies, enables, disables policies inside the digital ecosystem"
+                           ] .
+
+DEM-Policy:verifies  a     owl:ObjectProperty ;
+        rdfs:domain        DEM-Policy:QualityAssuranceMethod , DEM-Policy:QualityAssuranceCriterion ;
+        rdfs:label         "verifies"@en ;
+        rdfs:range         DEM-Core:EcosystemEntity ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "A quality assurance method verifies that a quality assurance criterion or test is fulfilled regarding the related ecosystem entity."
+                           ] .
+
+DEM-Policy:hasProcessSequence
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Process , DEM-Policy:AggregatedPolicy ;
+        rdfs:label         "hasProcessSequence"@en ;
+        rdfs:range         rdf:Seq ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Ordered sequence of processes which implement a policy"
+                           ] .
+
+DEM-Policy:addQACriterion
+        a                  owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Policy ;
+        rdfs:label         "addQACriterion"@en ;
+        rdfs:range         DEM-Policy:QualityAssuranceCriterion ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "Refers to a quality assurance criterion for a policy."
+                           ] .
+
+DEM-Policy:hasRisk  a      owl:ObjectProperty ;
+        rdfs:domain        DEM-Core:Policy ;
+        rdfs:label         "hasRisk"@en ;
+        rdfs:range         DEM-Policy:Risk ;
+        LRM:specification  [ a               LRM:Description ;
+                             LRM:definition  "The policy has a risk."
+                           ] .
