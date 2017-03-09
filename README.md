@@ -34,7 +34,7 @@ Apache 2.0
 
 # Documentation
 
-The full reference of the Digital Ecosystem Model can be found in the <a href="http://pericles-project.eu/deliverables/75">PERICLES Deliverable 3.5</a>.
+The full reference of the Digital Ecosystem Model can be found in the <a href="http://pericles-project.eu/deliverables/75">PERICLES Deliverable 3.5</a>. A short reference is available under the ![ GitHub Wiki pages ] ( https://github.com/pericles-project/DEM/wiki ).
 There is also a paper of the Digital Ecosystem Model which will be presented on <a href="http://medes.sigappfr.org/16/">8th International ACM Conference on Management of Digital EcoSystems (MEDES'16)</a>. 
 
 # Credits
