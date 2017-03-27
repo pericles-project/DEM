@@ -35,7 +35,7 @@ Apache 2.0
 # Documentation
 
 The full reference of the Digital Ecosystem Model can be found in the <a href="http://pericles-project.eu/deliverables/75">PERICLES Deliverable 3.5</a>. A short reference is available under the ![ GitHub Wiki pages ] ( https://github.com/pericles-project/DEM/wiki ).
-There is also a paper of the Digital Ecosystem Model which will be presented on <a href="http://medes.sigappfr.org/16/">8th International ACM Conference on Management of Digital EcoSystems (MEDES'16)</a>. 
+There is also a paper of the Digital Ecosystem Model which has been presented on <a href="http://medes.sigappfr.org/16/">8th International ACM Conference on Management of Digital EcoSystems (MEDES'16)</a>. 
 
 # Credits
 
@@ -45,6 +45,3 @@ There is also a paper of the Digital Ecosystem Model which will be presented on 
  <a href="http://www.pericles-project.eu/"> <img src="https://github.com/pericles-project/pet/blob/master/wiki-images/PERICLES%20logo_black.jpg" width="200" align="right"/> </a>
 
 <a href="http://www.sub.uni-goettingen.de/"><img src="https://github.com/pericles-project/pet/blob/master/wiki-images/sub-logo.jpg" width="300"/></a>
-
-***
-Note: The DEM will be released in Q4 2016.
