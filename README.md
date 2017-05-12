@@ -26,7 +26,7 @@ The ontology files are available as Turtle and RDF/XML and have the following pu
 
 # Supporting tool EcoBuilder
 
-The [EcoBuilder] (https://github.com/pericles-project/ecobuilder) tool will facilitate the simple creation of Digital Ecosystem Models for user scenarios. It provides a GUI for creating Ecosystem Models and an API.
+The [EcoBuilder](https://github.com/pericles-project/ecobuilder) tool will facilitate the simple creation of Digital Ecosystem Models for user scenarios. It provides a GUI for creating Ecosystem Models and an API.
 
 # License
 
